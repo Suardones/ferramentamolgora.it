@@ -69,6 +69,7 @@
 
       <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
         <a href="#reparti">Reparti</a>
+        <a href="#prodotti">Prodotti</a>
         <a href="#negozio">Il negozio</a>
         <a href="#orari">Orari</a>
         <a href="#contatti">Contatti</a>
@@ -187,6 +188,136 @@
           </div>
           <p>La disponibilità può variare: conviene chiamare il negozio prima di organizzare il servizio.</p>
           <a class="btn btn-dark btn-small" href="tel:+39029090263">Verifica al telefono</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="catalog-section" id="prodotti">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Catalogo vetrina</span>
+            <h2>Guarda cosa puoi trovare in negozio.</h2>
+          </div>
+          <p>Una selezione di famiglie di prodotto per orientarti prima di passare. Il catalogo non è un e-commerce e non mostra disponibilità in tempo reale.</p>
+        </div>
+
+        <div class="catalog-toolbar reveal">
+          <div class="catalog-filters" aria-label="Filtra i prodotti per categoria">
+            <button class="catalog-filter is-active" type="button" data-filter="all">Tutti</button>
+            <button class="catalog-filter" type="button" data-filter="ferramenta">Ferramenta</button>
+            <button class="catalog-filter" type="button" data-filter="chiavi">Chiavi</button>
+            <button class="catalog-filter" type="button" data-filter="serrature">Serrature</button>
+            <button class="catalog-filter" type="button" data-filter="giardinaggio">Giardinaggio</button>
+          </div>
+          <span class="catalog-demo-label">Esempi dimostrativi</span>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card reveal" data-category="ferramenta">
+            <div class="product-visual product-visual-bolts" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><path d="M28 20l18 18-9 9-18-18zM64 18l20 20-9 9-20-20zM40 57l16 16M75 57l16 16"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Ferramenta</span>
+              <h3>Viti e fissaggi</h3>
+              <p>Viteria, fissaggi e minuteria per lavori domestici e professionali.</p>
+              <a href="tel:+39029090263">Chiedi disponibilità <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-1" data-category="ferramenta">
+            <div class="product-visual product-visual-tools" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><path d="M25 68l42-42M62 22l10-10 16 16-10 10M52 50l18 18M76 48l20 20"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Ferramenta</span>
+              <h3>Utensili manuali</h3>
+              <p>Utensili e attrezzatura per manutenzione, montaggio e riparazioni.</p>
+              <a href="tel:+39029090263">Chiedi disponibilità <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="chiavi">
+            <div class="product-visual product-visual-key" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><circle cx="37" cy="42" r="16"/><path d="M53 42h45M81 42v11M69 42v8"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Chiavi</span>
+              <h3>Chiavi per casa</h3>
+              <p>Duplicazione di chiavi: porta il campione in negozio per verificare il tipo.</p>
+              <a href="tel:+39029090263">Chiedi informazioni <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-1" data-category="chiavi">
+            <div class="product-visual product-visual-car-key" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><rect x="20" y="24" width="43" height="34" rx="10"/><circle cx="34" cy="41" r="5"/><path d="M63 41h36M86 41v10M76 41v7"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Chiavi</span>
+              <h3>Chiavi auto con microchip</h3>
+              <p>Servizio segnalato online: modello e compatibilità vanno verificati con il negozio.</p>
+              <a href="tel:+39029090263">Verifica il modello <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="serrature">
+            <div class="product-visual product-visual-cylinder" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><rect x="21" y="32" width="78" height="28" rx="8"/><circle cx="45" cy="46" r="9"/><circle cx="76" cy="46" r="9"/><path d="M60 32v28"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Serrature</span>
+              <h3>Cilindri di sicurezza</h3>
+              <p>Soluzioni per sostituzione e manutenzione di serrature e cilindri.</p>
+              <a href="tel:+39029090263">Parla con il negozio <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-1" data-category="serrature">
+            <div class="product-visual product-visual-lock" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><rect x="27" y="38" width="66" height="39" rx="7"/><path d="M42 38V27a18 18 0 0 1 36 0v11M60 52v12"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Serrature</span>
+              <h3>Serrature per porte blindate</h3>
+              <p>Serrature, doppia mappa e soluzioni dedicate alla sicurezza della porta.</p>
+              <a href="tel:+39029090263">Chiedi informazioni <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="giardinaggio">
+            <div class="product-visual product-visual-garden" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><path d="M28 67h48l12 10M39 67l8-29h29l8 20M52 38V24h22v14"/><circle cx="40" cy="72" r="6"/><circle cx="78" cy="72" r="6"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Giardinaggio</span>
+              <h3>Attrezzatura da giardino</h3>
+              <p>Articoli e attrezzatura per la cura e la manutenzione degli spazi verdi.</p>
+              <a href="tel:+39029090263">Chiedi disponibilità <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-1" data-category="giardinaggio">
+            <div class="product-visual product-visual-machine" aria-hidden="true">
+              <svg viewBox="0 0 120 90"><path d="M25 61h57l13 10M38 61l9-28h30l8 20M51 33l8-12h15l6 12"/><circle cx="38" cy="68" r="7"/><circle cx="80" cy="68" r="7"/></svg>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Giardinaggio</span>
+              <h3>Macchinari da giardino</h3>
+              <p>Macchinari per il giardinaggio: disponibilità e modelli vanno verificati in negozio.</p>
+              <a href="tel:+39029090263">Chiama il negozio <span>↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="catalog-bottom reveal">
+          <div>
+            <strong>Non trovi quello che cerchi?</strong>
+            <p>Questi sono esempi di categorie, non l'intero assortimento. Per un articolo preciso conviene chiamare.</p>
+          </div>
+          <a class="btn btn-primary" href="tel:+39029090263">Chiama 02 909 0263</a>
         </div>
       </div>
     </section>
