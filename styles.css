@@ -317,30 +317,30 @@ h2 { font-size: clamp(45px, 5vw, 72px); max-width: 820px; }
 }
 /* Logo header: ritaglio diretto dell'insegna originale fornita */
 .exact-sign-brand {
-  height: 68px;
+  height: 66px;
   min-width: 0;
-  width: 300px;
-  max-width: 36vw;
-  overflow: visible;
+  width: 320px;
+  max-width: 38vw;
+  overflow: hidden;
   align-items: center;
+  border-radius: 4px;
+  border: 1px solid rgba(20,33,29,.16);
+  background: #d0b36d;
+  box-shadow: 0 2px 8px rgba(20,33,29,.08);
 }
 
 .exact-sign-logo {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 62px;
-  object-fit: contain;
-  object-position: left center;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 590px) {
   .exact-sign-brand {
-    height: 58px;
-    width: 205px;
-    max-width: 52vw;
-  }
-  .exact-sign-logo {
-    max-height: 52px;
+    height: 54px;
+    width: 214px;
+    max-width: 54vw;
   }
 }
