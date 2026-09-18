@@ -27,3 +27,21 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+
+const catalogFilters = document.querySelectorAll('.catalog-filter');
+const catalogProducts = document.querySelectorAll('.product-card[data-category]');
+
+catalogFilters.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+
+    catalogFilters.forEach((item) => item.classList.remove('is-active'));
+    button.classList.add('is-active');
+
+    catalogProducts.forEach((card) => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('is-hidden', !show);
+    });
+  });
+});
