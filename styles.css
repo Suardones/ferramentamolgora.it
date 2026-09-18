@@ -68,37 +68,6 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
   text-shadow: .5px .5px 0 rgba(103, 25, 20, .18);
 }
 
-.sign-rest {
-  display: inline-block;
-}
-
-.f-caliper-svg {
-  width: .76em;
-  height: 1.04em;
-  flex: 0 0 auto;
-  display: block;
-  margin-right: .035em;
-  overflow: visible;
-  transform: translateY(.02em);
-}
-
-.sign-main .f-caliper-svg .caliper-red {
-  fill: #c82f2a;
-  stroke: #8c201c;
-  stroke-width: 1.6;
-  stroke-linejoin: miter;
-}
-
-.sign-main .f-caliper-svg .caliper-dark {
-  fill: #2b2926;
-  stroke: #171512;
-  stroke-width: .7;
-}
-
-.sign-main .f-caliper-svg .caliper-detail {
-  fill: #6f645c;
-  stroke: none;
-}
 
 .sign-script {
   position: absolute;
@@ -264,7 +233,6 @@ h2 { font-size: clamp(45px, 5vw, 72px); max-width: 820px; }
   .container { width: min(calc(100% - 28px), var(--container)); }
   .sign-brand { min-width: 190px; height: 58px; }
   .sign-main { font-size: 30px; letter-spacing: .03em; }
-  .f-caliper-svg { width: .74em; height: 1.02em; }
   .sign-script { top: -12px; font-size: 25px; }
   h1 { font-size: clamp(49px, 16vw, 68px); }
   h2 { font-size: clamp(40px, 13vw, 55px); }
