@@ -55,7 +55,8 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
 }
 
 .sign-main {
-  display: block;
+  display: flex;
+  align-items: flex-end;
   color: #c82f2a;
   font-family: "Anton", "Arial Black", sans-serif;
   font-size: 38px;
@@ -65,6 +66,49 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
   transform: scaleX(1.03);
   transform-origin: left center;
   text-shadow: .5px .5px 0 rgba(103, 25, 20, .18);
+}
+
+.sign-rest {
+  display: inline-block;
+}
+
+.f-wrench {
+  position: relative;
+  display: inline-block;
+  margin-right: .015em;
+  color: #c82f2a;
+  z-index: 1;
+}
+
+/* Richiamo alla F dell'insegna: la struttura della lettera diventa una chiave inglese */
+.f-wrench::before {
+  content: "";
+  position: absolute;
+  left: .06em;
+  top: .18em;
+  width: .15em;
+  height: .84em;
+  background: linear-gradient(180deg, #777 0%, #494949 100%);
+  border-radius: 999px;
+  transform: rotate(-13deg);
+  transform-origin: 50% 88%;
+  z-index: -1;
+  box-shadow: inset 1px 0 rgba(255,255,255,.18);
+}
+
+.f-wrench::after {
+  content: "";
+  position: absolute;
+  left: -.035em;
+  top: -.12em;
+  width: .42em;
+  height: .34em;
+  border: .105em solid #555;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 55% 10% 0 10%;
+  transform: rotate(-20deg);
+  z-index: 2;
 }
 
 .sign-script {
