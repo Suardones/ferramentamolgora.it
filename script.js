@@ -50,19 +50,45 @@ catalogFilters.forEach((button) => {
 const siteHeader = document.querySelector('.site-header');
 const heroSection = document.querySelector('.hero');
 const topVideoStage = document.querySelector('.top-video-stage');
+const topVideo = document.querySelector('.top-bg-video');
 
 const updateTopVideoStage = () => {
   if (!siteHeader || !heroSection || !topVideoStage) return;
-  topVideoStage.style.height = `${siteHeader.offsetHeight + heroSection.offsetHeight}px`;
+  topVideoStage.style.top = `${siteHeader.offsetHeight}px`;
+  topVideoStage.style.height = `${heroSection.offsetHeight}px`;
 };
 
-const updateHeaderState = () => {
-  if (!siteHeader) return;
-  siteHeader.classList.toggle('is-scrolled', window.scrollY > 24);
+const loadHeroVideo = async () => {
+  if (!topVideo) return;
+  const source = topVideo.dataset.videoSource;
+  if (!source) return;
+
+  try {
+    const response = await fetch(source, { cache: 'force-cache' });
+    if (!response.ok) throw new Error('Video non disponibile');
+
+    const base64 = (await response.text()).trim();
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+
+    for (let i = 0; i < binary.length; i += 1) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+
+    const videoUrl = URL.createObjectURL(new Blob([bytes], { type: 'video/mp4' }));
+    topVideo.src = videoUrl;
+    topVideo.muted = true;
+    topVideo.defaultMuted = true;
+    topVideo.loop = true;
+    topVideo.playsInline = true;
+
+    await topVideo.play().catch(() => {});
+  } catch (error) {
+    console.warn('Sfondo video non caricato:', error);
+  }
 };
 
 window.addEventListener('load', updateTopVideoStage);
 window.addEventListener('resize', updateTopVideoStage);
-window.addEventListener('scroll', updateHeaderState, { passive: true });
 updateTopVideoStage();
-updateHeaderState();
+loadHeroVideo();
