@@ -60,14 +60,20 @@ const updateTopVideoStage = () => {
 
 const loadHeroVideo = async () => {
   if (!topVideo) return;
-  const source = topVideo.dataset.videoSource;
-  if (!source) return;
+  const sources = (topVideo.dataset.videoSources || '')
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+  if (!sources.length) return;
 
   try {
-    const response = await fetch(source, { cache: 'force-cache' });
-    if (!response.ok) throw new Error('Video non disponibile');
+    const chunks = await Promise.all(sources.map(async (source) => {
+      const response = await fetch(source, { cache: 'force-cache' });
+      if (!response.ok) throw new Error('Video non disponibile');
+      return (await response.text()).trim();
+    }));
 
-    const base64 = (await response.text()).trim();
+    const base64 = chunks.join('');
     const binary = atob(base64);
     const bytes = new Uint8Array(binary.length);
 
