@@ -54,6 +54,13 @@
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
 
+  <div class="top-video-stage" aria-hidden="true">
+    <video class="top-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/hero-background.mp4" type="video/mp4">
+    </video>
+    <div class="top-video-overlay"></div>
+  </div>
+
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand sign-brand" href="#top" aria-label="Ferramenta Molgora - Home">
@@ -81,10 +88,6 @@
 
   <main id="main">
     <section class="hero hero-video">
-      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="assets/hero-background.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video-overlay" aria-hidden="true"></div>
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="container hero-layout">
         <div class="hero-copy reveal">
