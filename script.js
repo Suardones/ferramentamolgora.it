@@ -82,16 +82,35 @@ const updateTopVideoStage = () => {
   sizeBackgroundVideo();
 };
 
-const revealBackgroundVideo = () => {
-  if (!topVideoStage) return;
-  window.setTimeout(() => {
-    topVideoStage.classList.add('is-video-ready');
-  }, 2600);
+const loadBackgroundVideo = () => {
+  if (!topVideoStage || !topVideoFrame) return;
+
+  const source = topVideoFrame.dataset.src;
+  if (!source || topVideoFrame.src) return;
+
+  let revealTimer;
+
+  topVideoFrame.addEventListener('load', () => {
+    clearTimeout(revealTimer);
+    revealTimer = window.setTimeout(() => {
+      topVideoStage.classList.add('is-video-ready');
+    }, 1800);
+  }, { once: true });
+
+  topVideoFrame.src = source;
 };
 
 window.addEventListener('load', () => {
   updateTopVideoStage();
-  revealBackgroundVideo();
+
+  const startVideo = () => loadBackgroundVideo();
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(startVideo, { timeout: 1800 });
+  } else {
+    window.setTimeout(startVideo, 900);
+  }
 });
+
 window.addEventListener('resize', updateTopVideoStage);
 updateTopVideoStage();
