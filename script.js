@@ -50,13 +50,48 @@ catalogFilters.forEach((button) => {
 const siteHeader = document.querySelector('.site-header');
 const heroSection = document.querySelector('.hero');
 const topVideoStage = document.querySelector('.top-video-stage');
+const topVideoFrame = document.querySelector('.top-bg-video-frame');
+
+const sizeBackgroundVideo = () => {
+  if (!topVideoStage || !topVideoFrame) return;
+
+  const stageWidth = topVideoStage.clientWidth;
+  const stageHeight = topVideoStage.clientHeight;
+  const videoRatio = 16 / 9;
+  const cropScale = window.innerWidth < 700 ? 1.32 : 1.26;
+
+  let width;
+  let height;
+
+  if (stageWidth / stageHeight > videoRatio) {
+    width = stageWidth * cropScale;
+    height = width / videoRatio;
+  } else {
+    height = stageHeight * cropScale;
+    width = height * videoRatio;
+  }
+
+  topVideoFrame.style.width = `${Math.ceil(width)}px`;
+  topVideoFrame.style.height = `${Math.ceil(height)}px`;
+};
 
 const updateTopVideoStage = () => {
   if (!siteHeader || !heroSection || !topVideoStage) return;
   topVideoStage.style.top = `${siteHeader.offsetHeight}px`;
   topVideoStage.style.height = `${heroSection.offsetHeight}px`;
+  sizeBackgroundVideo();
 };
 
-window.addEventListener('load', updateTopVideoStage);
+const revealBackgroundVideo = () => {
+  if (!topVideoStage) return;
+  window.setTimeout(() => {
+    topVideoStage.classList.add('is-video-ready');
+  }, 2600);
+};
+
+window.addEventListener('load', () => {
+  updateTopVideoStage();
+  revealBackgroundVideo();
+});
 window.addEventListener('resize', updateTopVideoStage);
 updateTopVideoStage();
