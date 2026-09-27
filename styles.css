@@ -38,9 +38,8 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
   height: 900px;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(13,23,20,.30), rgba(13,23,20,.12)),
-    url("https://i.ytimg.com/vi/hN9VRC19iUo/maxresdefault.jpg") center center / cover no-repeat,
-    var(--ink);
+    radial-gradient(circle at 78% 30%, rgba(245,181,27,.10), transparent 32%),
+    linear-gradient(135deg, #1d2a25 0%, #101915 55%, #0b120f 100%);
   pointer-events: none;
 }
 .top-bg-video-frame {
@@ -57,7 +56,7 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
   background: transparent;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .7s ease;
+  transition: opacity .45s ease;
 }
 .top-video-stage.is-video-ready .top-bg-video-frame {
   opacity: 1;
