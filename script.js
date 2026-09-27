@@ -94,7 +94,7 @@ const loadBackgroundVideo = () => {
     clearTimeout(revealTimer);
     revealTimer = window.setTimeout(() => {
       topVideoStage.classList.add('is-video-ready');
-    }, 1800);
+    }, 650);
   }, { once: true });
 
   topVideoFrame.src = source;
