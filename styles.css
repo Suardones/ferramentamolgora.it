@@ -40,20 +40,26 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
   background: var(--ink);
   pointer-events: none;
 }
-.top-bg-video {
+.top-bg-video-frame {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
+  top: 50%;
+  left: 50%;
+  width: max(100vw, 177.78vh);
+  height: max(56.25vw, 100vh);
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%) scale(1.02);
+  border: 0;
+  pointer-events: none;
+  background: var(--ink);
 }
 .top-video-overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(13,23,20,.68) 0%, rgba(13,23,20,.48) 48%, rgba(13,23,20,.28) 100%),
-    linear-gradient(0deg, rgba(13,23,20,.58) 0%, rgba(13,23,20,.06) 55%, rgba(13,23,20,.12) 100%);
+    linear-gradient(90deg, rgba(13,23,20,.52) 0%, rgba(13,23,20,.30) 48%, rgba(13,23,20,.16) 100%),
+    linear-gradient(0deg, rgba(13,23,20,.42) 0%, rgba(13,23,20,.03) 58%, rgba(13,23,20,.08) 100%);
+  pointer-events: none;
 }
 .site-header {
   position: sticky;
@@ -162,8 +168,8 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
 .btn-ghost { border: 1px solid rgba(255,255,255,.22); color: var(--white); }
 
 .hero { position: relative; z-index: 1; overflow: hidden; background: transparent; color: var(--white); padding: 88px 0 0; }
-.hero::before { content: ""; position: absolute; z-index: 0; inset: -40% auto auto 58%; width: 600px; height: 600px; border-radius: 50%; background: rgba(245,181,27,.08); filter: blur(10px); pointer-events: none; }
-.hero-grid-bg { position: absolute; z-index: 0; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 34px 34px; mask-image: linear-gradient(to bottom, #000 20%, transparent 85%); }
+.hero::before { display: none; }
+.hero-grid-bg { display: none !important; }
 .hero-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: clamp(40px, 6vw, 88px); min-height: 610px; }
 .eyebrow, .section-kicker { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .17em; text-transform: uppercase; font-weight: 800; color: var(--accent); }
 .eyebrow span { width: 28px; height: 2px; background: currentColor; }
