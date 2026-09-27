@@ -44,21 +44,29 @@ svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-widt
   position: absolute;
   top: 50%;
   left: 50%;
-  width: max(100vw, 177.78vh);
-  height: max(56.25vw, 100vh);
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%) scale(1.02);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  transform: translate(-50%, -50%);
   border: 0;
   pointer-events: none;
-  background: var(--ink);
+  background: transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .7s ease;
+}
+.top-video-stage.is-video-ready .top-bg-video-frame {
+  opacity: 1;
+  visibility: visible;
 }
 .top-video-overlay {
   position: absolute;
+  z-index: 2;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(13,23,20,.52) 0%, rgba(13,23,20,.30) 48%, rgba(13,23,20,.16) 100%),
-    linear-gradient(0deg, rgba(13,23,20,.42) 0%, rgba(13,23,20,.03) 58%, rgba(13,23,20,.08) 100%);
+    linear-gradient(90deg, rgba(13,23,20,.46) 0%, rgba(13,23,20,.24) 48%, rgba(13,23,20,.10) 100%),
+    linear-gradient(0deg, rgba(13,23,20,.34) 0%, rgba(13,23,20,.02) 58%, rgba(13,23,20,.06) 100%);
   pointer-events: none;
 }
 .site-header {
