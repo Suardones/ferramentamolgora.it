@@ -1,0 +1,48 @@
+name: Prepare hero video
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/prepare-hero-video.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-hero-video:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install downloader
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install yt-dlp
+
+      - name: Download source video
+        run: |
+          mkdir -p assets
+          yt-dlp             --no-playlist             -f "bestvideo[height<=1080][ext=mp4]/bestvideo[height<=1080]/best[height<=1080]"             -o "/tmp/hero-source.%(ext)s"             "https://www.youtube.com/watch?v=hN9VRC19iUo"
+
+      - name: Build silent 1080p hero loop
+        run: |
+          SOURCE="$(find /tmp -maxdepth 1 -type f -name 'hero-source.*' | head -n 1)"
+          test -n "$SOURCE"
+          ffmpeg -y -ss 8 -t 8 -i "$SOURCE"             -an             -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080"             -c:v libx264 -preset medium -crf 23             -pix_fmt yuv420p -movflags +faststart             assets/hero-background-hd.mp4
+          ls -lh assets/hero-background-hd.mp4
+
+      - name: Commit hero video
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/hero-background-hd.mp4
+          if git diff --cached --quiet; then
+            echo "Hero video already up to date."
+          else
+            git commit -m "Add optimized 1080p hero background video"
+            git push
+          fi
